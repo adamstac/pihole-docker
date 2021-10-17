@@ -28,5 +28,9 @@ services:
 
     # Volumes store your data outside of the container
     volumes:
-      - "./etc-pihole/:/etc/pihole/"
-      - "./etc-dnsmasq.d/:/etc/dnsmasq.d/"
+      - "etc-pihole:/etc/pihole/"
+      - "etc-dnsmasq.d:/etc/dnsmasq.d/"
+
+volumes:
+    etc-pihole:
+    etc-dnsmasq.d:
