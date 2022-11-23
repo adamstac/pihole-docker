@@ -8,7 +8,7 @@ services:
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
-    hostname: pihole-docker
+    hostname: ${HOSTNAME}
     restart: unless-stopped
 
     ports:
@@ -28,9 +28,9 @@ services:
 
     # Volumes store your data outside of the container
     volumes:
-      - "etc-pihole:/etc/pihole/"
-      - "etc-dnsmasq.d:/etc/dnsmasq.d/"
+      - "./etc-pihole:/etc/pihole/"
+      - "./etc-dnsmasq.d:/etc/dnsmasq.d/"
 
-volumes:
-    etc-pihole:
-    etc-dnsmasq.d:
+# volumes:
+#     etc-pihole:
+#     etc-dnsmasq.d:
