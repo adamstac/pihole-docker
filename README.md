@@ -25,12 +25,12 @@ vim .env
 Set your `.env` file as you'd like. Here's my example.
 
 ```
-HOSTNAME="192.169.100.10 (hostname.lan)"
+HOSTNAME="192.169.100.10 (minipro.lan)"
 WEBPASSWORD="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 TZ="America/Chicago"
 ```
 
-Then get the Docker image and container setup and run it.
+Pull the Docker image and and run it.
 
 ```
 docker-compose pull
