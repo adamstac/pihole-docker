@@ -39,6 +39,12 @@ docker-compose up -d
 
 You should now be running Pi-hole via Docker.
 
+Confirm this by running the following.
+
+```
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
+```
+
 ## Updating Pi-hole
 
 ```
