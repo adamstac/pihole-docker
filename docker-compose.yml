@@ -1,27 +1,25 @@
 version: "3"
 
-# More info at:
-# https://github.com/pi-hole/docker-pi-hole/
-# https://docs.pi-hole.net/
-
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   pihole:
-    container_name: pihole
-    image: pihole/pihole:latest
-    hostname: ${HOSTNAME}
-    restart: unless-stopped
 
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "67:67/udp"
-      - "80:80/tcp"
-      - "443:443/tcp"
-
-    # .env file stores your personal settings
+    # Use the env_file to store your personal settings
     env_file:
       - ".env"
 
+    hostname: ${HOSTNAME}
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+
+    # Pi-hole ports mapped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+
+    # Pi-hole environment details
     environment:
       TZ: ${TZ}
       WEBPASSWORD: ${WEBPASSWORD}
@@ -30,7 +28,3 @@ services:
     volumes:
       - "./etc-pihole:/etc/pihole/"
       - "./etc-dnsmasq.d:/etc/dnsmasq.d/"
-
-# volumes:
-#     etc-pihole:
-#     etc-dnsmasq.d:
